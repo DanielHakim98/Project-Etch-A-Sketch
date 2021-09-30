@@ -1,0 +1,1 @@
+divGrid.setAttribute('class','grid-container');
