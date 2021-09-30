@@ -28,6 +28,14 @@ body{
     background-color: brown;
 }
 
-.erase{
-    background-color: white;
+.control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    gap: 1em
+}
+
+button{
+    padding: .5em 1em;
 }

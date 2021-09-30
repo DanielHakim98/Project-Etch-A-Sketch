@@ -5,6 +5,7 @@ const divCell=document.createElement('div');
 const divControl=document.createElement('div');
 const btnReset=document.createElement('button');
 const btnErase=document.createElement('button');
+const btnColor=document.createElement('button');
 /*grab body selector*/
 const body=document.querySelector('body');
 
@@ -16,8 +17,9 @@ divMain.setAttribute('class','main');
 
 btnReset.textContent="Reset";
 btnErase.textContent="Erase";
+btnColor.textContent="Color";
 
-divControl.append(btnErase,btnReset);
+divControl.append(btnReset,btnErase,btnColor);
 
 
 divMain.appendChild(divGrid);
@@ -34,13 +36,16 @@ for(let i=0; i<16; i++){
 
 const gridCell=document.querySelectorAll('.grid-child');
 console.log(gridCell);
+
 gridCell.forEach((cell)=>{
-    cell.addEventListener('mouseover',(e)=>{
-        e.target.classList.add('color');
-        e.stopPropagation();
-        console.log(e.target);
-    });
+    cell.addEventListener('mouseover',colorGrid);
 });
+function colorGrid(e){
+    e.target.classList.remove('erase')
+    e.target.classList.add('color');
+    console.log(e.target);
+}
+
 
 
 btnReset.addEventListener('click',resetAll);
@@ -50,3 +55,21 @@ function resetAll(){
     });
 }
 
+btnErase.addEventListener('click',eraseAll)
+function eraseAll(e){
+    gridCell.forEach((cell)=>{
+        cell.removeEventListener('mouseover',colorGrid);
+        cell.addEventListener('mouseover',whitening);
+    } )   
+}
+function whitening(e){
+    e.target.classList.remove('color');
+}
+
+btnColor.addEventListener('click',coloring)
+function coloring(e){
+    gridCell.forEach((cell)=>{
+        cell.removeEventListener('mouseover',whitening);
+        cell.addEventListener('mouseover',colorGrid);
+    })
+}
