@@ -7,3 +7,6 @@ Website link: https://danielhakim98.github.io/Project-Etch-A-Sketch/
 30/9/21:
 -Just playing around with DOM features and CSS grid.
 -Add buttons to allow reset grid, allow color and erase grid.
+
+1/10/21:
+-Add raibownism to the game.and color,rainbow,erase only use inline style.
