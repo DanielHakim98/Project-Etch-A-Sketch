@@ -50,15 +50,14 @@ function colorGrid(e){
 }
 
 
-
 btnReset.addEventListener('click',resetAll);
 function resetAll(e){
     gridCell.forEach((cell)=>{
-        // cell.classList.remove('color');
         console.log(cell);
         cell.style.backgroundColor='white';
     });
 }
+
 
 btnErase.addEventListener('click',eraseAll)
 function eraseAll(e){
@@ -73,6 +72,7 @@ function whitening(e){
     e.target.style.backgroundColor='white';
 }
 
+
 btnColor.addEventListener('click',coloring)
 function coloring(e){
     gridCell.forEach((cell)=>{
@@ -82,6 +82,14 @@ function coloring(e){
         cell.addEventListener('mouseover',colorGrid);
     })
 }
+
+
+btnColor.addEventListener('dblclick',(e)=>{
+    gridCell.forEach(e=>{
+        e.style.backgroundColor='brown';
+    })
+})
+
 
 btnRainbow.addEventListener('click',rainbowing)
 function rainbowing(e){
@@ -100,4 +108,13 @@ function rainbowGrid(e){
     e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
 }
 
+
+btnRainbow.addEventListener('dblclick',(e)=>{
+    gridCell.forEach((cell)=>{
+        const randomR = Math.floor(Math.random() * 256);
+        const randomG = Math.floor(Math.random() * 256);
+        const randomB = Math.floor(Math.random() * 256);
+        cell.style.backgroundColor=`rgb(${randomR}, ${randomG}, ${randomB})`;
+    });
+})
 

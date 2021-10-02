@@ -53,12 +53,14 @@ h1{
 button{
     padding: .5em 1em;
     box-sizing: border-box;
-    color:white;
+    color:black;
+    font-weight: 600;
+    box-shadow: none;
 }
 
 button, button:focus{
     outline: none;
-    background: chocolate;
+    background: white;
     border: 1px solid transparent;
     cursor: pointer;
   }
@@ -73,4 +75,5 @@ button, button:focus{
     transform: scale(1.25);
     transition: all 0.2s;
     background-color: coral;
+    box-shadow: 0 0 10px 1px black;
   }
